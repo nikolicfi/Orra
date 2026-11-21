@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B2C3000000000000000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000001 /* AppDelegate.swift */; };
+		A1B2C3000000000000000004 /* AudioSpectrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000003 /* AudioSpectrum.swift */; };
+		A1B2C3000000000000000006 /* LockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000005 /* LockObserver.swift */; };
+		A1B2C3000000000000000008 /* LockScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000007 /* LockScreenController.swift */; };
+		A1B2C300000000000000000A /* MenuBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000009 /* MenuBarIcon.swift */; };
+		A1B2C300000000000000000C /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C300000000000000000B /* NowPlaying.swift */; };
+		A1B2C300000000000000000E /* PureBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C300000000000000000D /* PureBlurView.swift */; };
+		A1B2C3000000000000000010 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C300000000000000000F /* Settings.swift */; };
+		A1B2C3000000000000000012 /* SkyLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000011 /* SkyLight.swift */; };
+		A1B2C3000000000000000014 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000013 /* Views.swift */; };
+		A1B2C3000000000000000016 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000015 /* main.swift */; };
+		A1B2C3000000000000000018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3000000000000000017 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1B2C3000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000003 /* AudioSpectrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpectrum.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000005 /* LockObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockObserver.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000007 /* LockScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenController.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000009 /* MenuBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIcon.swift; sourceTree = "<group>"; };
+		A1B2C300000000000000000B /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
+		A1B2C300000000000000000D /* PureBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PureBlurView.swift; sourceTree = "<group>"; };
+		A1B2C300000000000000000F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000011 /* SkyLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLight.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000013 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000015 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A1B2C3000000000000000017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1B2C3000000000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C300000000000000001A /* Orra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3000000000000000023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C300000000000000001B = {
+			isa = PBXGroup;
+			children = (
+				A1B2C300000000000000001C /* Sources/Orra */,
+				A1B2C300000000000000001D /* Resources */,
+				A1B2C300000000000000001E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C300000000000000001C /* Sources/Orra */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3000000000000000001 /* AppDelegate.swift */,
+				A1B2C3000000000000000003 /* AudioSpectrum.swift */,
+				A1B2C3000000000000000005 /* LockObserver.swift */,
+				A1B2C3000000000000000007 /* LockScreenController.swift */,
+				A1B2C3000000000000000009 /* MenuBarIcon.swift */,
+				A1B2C300000000000000000B /* NowPlaying.swift */,
+				A1B2C300000000000000000D /* PureBlurView.swift */,
+				A1B2C300000000000000000F /* Settings.swift */,
+				A1B2C3000000000000000011 /* SkyLight.swift */,
+				A1B2C3000000000000000013 /* Views.swift */,
+				A1B2C3000000000000000015 /* main.swift */,
+				A1B2C3000000000000000019 /* Info.plist */,
+			);
+			path = Sources/Orra;
+			sourceTree = "<group>";
+		};
+		A1B2C300000000000000001D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3000000000000000017 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1B2C300000000000000001E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C300000000000000001A /* Orra.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C300000000000000001F /* Orra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3000000000000000025 /* Build configuration list for PBXNativeTarget "Orra" */;
+			buildPhases = (
+				A1B2C3000000000000000021 /* Sources */,
+				A1B2C3000000000000000023 /* Frameworks */,
+				A1B2C3000000000000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Orra;
+			productName = Orra;
+			productReference = A1B2C300000000000000001A /* Orra.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3000000000000000020 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 2720;
+				ORGANIZATIONNAME = nikolicfi;
+				TargetAttributes = {
+					A1B2C300000000000000001F = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B2C3000000000000000024 /* Build configuration list for PBXProject "Orra" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B2C300000000000000001B;
+			productRefGroup = A1B2C300000000000000001E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C300000000000000001F /* Orra */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3000000000000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3000000000000000018 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3000000000000000002 /* AppDelegate.swift in Sources */,
+				A1B2C3000000000000000004 /* AudioSpectrum.swift in Sources */,
+				A1B2C3000000000000000006 /* LockObserver.swift in Sources */,
+				A1B2C3000000000000000008 /* LockScreenController.swift in Sources */,
+				A1B2C300000000000000000A /* MenuBarIcon.swift in Sources */,
+				A1B2C300000000000000000C /* NowPlaying.swift in Sources */,
+				A1B2C300000000000000000E /* PureBlurView.swift in Sources */,
+				A1B2C3000000000000000010 /* Settings.swift in Sources */,
+				A1B2C3000000000000000012 /* SkyLight.swift in Sources */,
+				A1B2C3000000000000000014 /* Views.swift in Sources */,
+				A1B2C3000000000000000016 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C3000000000000000026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C3000000000000000027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A1B2C3000000000000000028 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Orra/Info.plist;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolicfi.orra;
+				PRODUCT_NAME = Orra;
+			};
+			name = Debug;
+		};
+		A1B2C3000000000000000029 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Orra/Info.plist;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolicfi.orra;
+				PRODUCT_NAME = Orra;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3000000000000000024 /* Build configuration list for PBXProject "Orra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3000000000000000026 /* Debug */,
+				A1B2C3000000000000000027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3000000000000000025 /* Build configuration list for PBXNativeTarget "Orra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3000000000000000028 /* Debug */,
+				A1B2C3000000000000000029 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3000000000000000020 /* Project object */;
+}

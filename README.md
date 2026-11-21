@@ -11,7 +11,6 @@ A small, glassy now-playing card that sits right on top of the login window — 
 ![macOS 14+](https://img.shields.io/badge/macOS-14%2B-1d1d1f?style=flat-square&logo=apple&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
 ![Music & Spotify](https://img.shields.io/badge/Music%20%7C%20Spotify-6366f1?style=flat-square)
-[![Download](https://img.shields.io/github/v/release/nikolicfi/Orra?style=flat-square&label=download&color=6366f1)](https://github.com/nikolicfi/Orra/releases/latest)
 
 </div>
 

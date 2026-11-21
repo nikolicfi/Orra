@@ -25,11 +25,14 @@ A small, glassy now-playing card that sits right on top of the login window — 
 **[⬇ Download Orra.dmg (latest)](https://github.com/nikolicfi/Orra/releases/latest/download/Orra.dmg)** · [All releases](https://github.com/nikolicfi/Orra/releases)
 
 1. Open **Orra.dmg** and drag **Orra** into **Applications**.
-2. Open Orra from Applications. The first time, if macOS says it can't verify the app, right-click it → **Open** → **Open**.
-3. Play something in Music or Spotify and approve the Automation prompt.
-4. Lock your Mac with <kbd>⌃⌘Q</kbd>.
+2. Open Orra from Applications. macOS will block it the first time. Click **Done**.
+3. Go to **System Settings → Privacy & Security**.
+4. Scroll down to the message about "Orra" being blocked and click **Open Anyway**.
+5. Enter your password and confirm.
+6. Play something in Music or Spotify and approve the Automation prompt.
+7. Lock your Mac with <kbd>⌃⌘Q</kbd>.
 
-Requires **macOS 14+**. The app isn't notarized, so the right-click step is needed once.
+Requires **macOS 14+**. The app isn't notarized, so steps 2–5 are only needed once.
 
 ## Modes
 

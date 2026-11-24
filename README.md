@@ -22,8 +22,6 @@ A small, glassy now-playing card that sits right on top of the login window — 
 
 ## Download
 
-**[⬇ Download Orra.dmg (latest)](https://github.com/nikolicfi/Orra/releases/latest/download/Orra.dmg)** · [All releases](https://github.com/nikolicfi/Orra/releases)
-
 1. Open **Orra.dmg** and drag **Orra** into **Applications**.
 2. Open Orra from Applications. macOS will block it the first time. Click **Done**.
 3. Go to **System Settings → Privacy & Security**.

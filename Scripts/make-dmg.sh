@@ -33,7 +33,9 @@ echo "==> Staging installer"
 mkdir -p "$WORK/stage/.background"
 cp -R "$APP" "$WORK/stage/Orra.app"
 ln -s /Applications "$WORK/stage/Applications"
-cp "$ROOT/Scripts/dmg/background.png" "$WORK/stage/.background/background.png"
+# multi-resolution (Retina) background from the 1x and 2x images
+tiffutil -cathidpicheck "$ROOT/Scripts/dmg/background.png" "$ROOT/Scripts/dmg/background@2x.png" \
+  -out "$WORK/stage/.background/background.tiff"
 
 hdiutil detach "/Volumes/$VOL" -force >/dev/null 2>&1 || true
 hdiutil create -srcfolder "$WORK/stage" -volname "$VOL" -fs HFS+ -format UDRW -ov "$WORK/rw.dmg" >/dev/null
@@ -53,7 +55,7 @@ tell application "Finder"
     set arrangement of opts to not arranged
     set icon size of opts to 128
     set text size of opts to 13
-    set background picture of opts to file ".background:background.png"
+    set background picture of opts to file ".background:background.tiff"
     set position of item "Orra.app" of container window to {175, 243}
     set position of item "Applications" of container window to {485, 243}
     update without registering applications

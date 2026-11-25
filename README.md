@@ -82,7 +82,7 @@ Then:
 - Orra uses **private SkyLight APIs** to draw above the lock screen — so it's not App Store safe and may break with macOS updates.
 - Now-playing info comes from **AppleScript** (Music, Spotify). MediaRemote isn't used: it's blocked for third-party apps since macOS 15.4.
 - Album artwork comes straight from Music or Spotify.
-- To show the **Explicit** badge, the title and artist of the current track are sent to the public iTunes Search API (`itunes.apple.com`, over HTTPS). Nothing else leaves your Mac, and nothing is logged or stored by Orra.
+- Orra makes no network requests of its own and logs nothing. The only download is the Spotify album artwork, fetched from the URL Spotify itself provides.
 
 <br />
 

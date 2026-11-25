@@ -204,18 +204,6 @@ struct Marquee<Content: View>: View {
     }
 }
 
-// MARK: - Explicit badge (small rounded square with an E)
-struct ExplicitBadge: View {
-    var body: some View {
-        Text("E")
-            .font(.system(size: 10, weight: .heavy, design: .rounded))
-            .foregroundStyle(.background)
-            .frame(width: 14, height: 14)
-            .background(RoundedRectangle(cornerRadius: 3, style: .continuous).fill(Color.primary.opacity(0.55)))
-            .accessibilityLabel("Explicit")
-    }
-}
-
 // MARK: - Audio visualiser (7 bars; flat dots when paused)
 struct WaveformBars: View {
     var playing: Bool
@@ -352,7 +340,6 @@ struct PlayerCard: View {
                     HStack(spacing: 5) {
                         Text(model.title)
                             .font(.system(size: 17, weight: .semibold))
-                        if model.isExplicit { ExplicitBadge() }
                     }
                 }
                 Marquee(key: "creator", alignment: full ? .center : .leading, height: 20) {

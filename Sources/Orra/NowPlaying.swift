@@ -74,51 +74,6 @@ enum Fetcher {
                         duration: num(p[5]) / 1000, artworkURL: p[6])
     }
 
-    /// Music/Spotify AppleScript expose no explicit flag, so ask the public iTunes Search API
-    /// (no key needed) and match on title + artist/show. Songs first, then podcast episodes.
-    static func isExplicit(_ s: Snapshot) async -> Bool {
-        func norm(_ x: String) -> String {
-            x.lowercased().folding(options: .diacriticInsensitive, locale: nil)
-                .trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        // "Song (feat. X)", "Song - Remastered", "Song [Explicit]" -> "song"
-        func base(_ x: String) -> String {
-            var t = norm(x)
-            for sep in [" (", " [", " - ", " – "] { if let r = t.range(of: sep) { t = String(t[..<r.lowerBound]) } }
-            return t
-        }
-        let title = base(s.title)
-        let people = (s.artist + "," + s.album).components(separatedBy: CharacterSet(charactersIn: ",&"))
-            .map(norm).filter { !$0.isEmpty }
-
-        func query(_ term: String, entity: String) async -> [[String: Any]] {
-            var c = URLComponents(string: "https://itunes.apple.com/search")!
-            c.queryItems = [.init(name: "term", value: term), .init(name: "entity", value: entity),
-                            .init(name: "limit", value: "15")]
-            guard let url = c.url,
-                  let (data, _) = try? await URLSession.shared.data(from: url),
-                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                  let results = json["results"] as? [[String: Any]] else { return [] }
-            return results
-        }
-        func flagged(_ r: [String: Any]) -> Bool {
-            (r["trackExplicitness"] as? String) == "explicit"
-                || (r["contentAdvisoryRating"] as? String)?.lowercased() == "explicit"
-        }
-
-        for entity in ["song", "podcastEpisode"] {
-            let results = await query("\(s.title) \(s.artist)", entity: entity)
-            for r in results {
-                guard let name = r["trackName"] as? String, base(name) == title else { continue }
-                let who = norm((r["artistName"] as? String) ?? "") + " " + norm((r["collectionName"] as? String) ?? "")
-                guard people.contains(where: { who.contains($0) }) else { continue }
-                if flagged(r) { lpLog("explicit: yes (\(entity)) \(s.title)"); return true }
-            }
-        }
-        lpLog("explicit: no match for \(s.title)")
-        return false
-    }
-
     static func artworkData(for s: Snapshot) -> Data? {
         switch s.source {
         case .spotify:
@@ -156,7 +111,6 @@ final class NowPlayingModel: ObservableObject {
     @Published var album = ""
     @Published var artwork: NSImage?
     @Published var isPlaying = false
-    @Published var isExplicit = false
     @Published var duration: Double = 0
     @Published private(set) var position: Double = 0
     @Published private(set) var positionStamp = Date()
@@ -203,7 +157,7 @@ final class NowPlayingModel: ObservableObject {
     private func apply(_ s: Snapshot?) {
         polling = false
         guard let s else {
-            title = ""; artist = ""; album = ""; artwork = nil; isPlaying = false; isExplicit = false
+            title = ""; artist = ""; album = ""; artwork = nil; isPlaying = false
             source = nil; lastKey = ""
             return
         }
@@ -217,11 +171,6 @@ final class NowPlayingModel: ObservableObject {
         if key != lastKey {
             lastKey = key
             artwork = nil
-            isExplicit = false
-            Task.detached(priority: .utility) {
-                let ex = await Fetcher.isExplicit(s)
-                await MainActor.run { if self.lastKey == key { self.isExplicit = ex } }
-            }
             Task.detached(priority: .utility) {
                 let data = Fetcher.artworkData(for: s)
                 await MainActor.run {

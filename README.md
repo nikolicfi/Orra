@@ -22,6 +22,8 @@ A small, glassy now-playing card that sits right on top of the login window — 
 
 ## Download
 
+Get **Orra.dmg** from the [latest release](https://github.com/nikolicfi/Orra/releases/latest), then:
+
 1. Open **Orra.dmg** and drag **Orra** into **Applications**.
 2. Open Orra from Applications. macOS will block it the first time. Click **Done**.
 3. Go to **System Settings → Privacy & Security**.
@@ -79,7 +81,8 @@ Then:
 
 - Orra uses **private SkyLight APIs** to draw above the lock screen — so it's not App Store safe and may break with macOS updates.
 - Now-playing info comes from **AppleScript** (Music, Spotify). MediaRemote isn't used: it's blocked for third-party apps since macOS 15.4.
-- Album artwork may be looked up through the public iTunes Search API.
+- Album artwork comes straight from Music or Spotify.
+- To show the **Explicit** badge, the title and artist of the current track are sent to the public iTunes Search API (`itunes.apple.com`, over HTTPS). Nothing else leaves your Mac, and nothing is logged or stored by Orra.
 
 <br />
 

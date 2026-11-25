@@ -152,12 +152,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func pickBlur(_ sender: NSMenuItem) {
         if let v = sender.representedObject as? Double { settings.blur = v; rebuildMenu() }
     }
-    @objc private func pickGlass(_ sender: NSMenuItem) {
-        if let raw = sender.representedObject as? String, let g = GlassStyle(rawValue: raw) {
-            settings.glass = g
-            rebuildMenu()
-        }
-    }
     @objc private func preview() { controller.preview() }
     @objc private func toggleLogin() {
         do {

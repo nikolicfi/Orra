@@ -4,7 +4,10 @@ import AppKit
 /// A window added to a custom compositor space with a high absolute level is
 /// drawn above the login window, i.e. on the lock screen.
 /// Private API: can break with any macOS update.
+/// Diagnostics are compiled in for Debug builds only, so Release builds never log
+/// track titles or write any log file.
 func lpLog(_ s: String) {
+    #if DEBUG
     NSLog("Orra: %@", s)
     let line = "\(Date()) \(s)\n"
     let url = URL(fileURLWithPath: "/tmp/orra.log")
@@ -13,6 +16,7 @@ func lpLog(_ s: String) {
     } else {
         try? line.write(to: url, atomically: true, encoding: .utf8)
     }
+    #endif
 }
 
 struct LockSpace {

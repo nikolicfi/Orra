@@ -5,17 +5,6 @@ enum LockMode: String, CaseIterable {
     var title: String { self == .compact ? "Compact card" : "Full-screen artwork" }
 }
 
-enum GlassStyle: String, CaseIterable {
-    case system, clear, tinted
-    var title: String {
-        switch self {
-        case .system: return "Follow macOS setting"
-        case .clear:  return "Clear"
-        case .tinted: return "Tinted"
-        }
-    }
-}
-
 enum CardTone: String, CaseIterable {
     case black, white, auto
     var title: String {
@@ -43,9 +32,6 @@ enum TextTone: String, CaseIterable {
 final class Settings: ObservableObject {
     @Published var mode: LockMode {
         didSet { UserDefaults.standard.set(mode.rawValue, forKey: "mode") }
-    }
-    @Published var glass: GlassStyle {
-        didSet { UserDefaults.standard.set(glass.rawValue, forKey: "glass") }
     }
     /// Card colour: black, white, or follow the macOS light/dark theme.
     @Published var tone: CardTone {
@@ -84,7 +70,6 @@ final class Settings: ObservableObject {
         blur = UserDefaults.standard.object(forKey: "blur") as? Double ?? 0.2
         textTone = TextTone(rawValue: UserDefaults.standard.string(forKey: "textTone") ?? "") ?? .white
         borderOpacity = UserDefaults.standard.object(forKey: "borderOpacity") as? Double ?? 0.3
-        glass = GlassStyle(rawValue: UserDefaults.standard.string(forKey: "glass") ?? "") ?? .clear
         mode = LockMode(rawValue: UserDefaults.standard.string(forKey: "mode") ?? "") ?? .compact
     }
 }

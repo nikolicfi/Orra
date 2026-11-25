@@ -2,8 +2,8 @@
 # One-step build: ./Scripts/make-dmg.sh   ->   build/Orra.dmg
 #
 # Builds Orra.app (ad-hoc signed, no Apple Developer account needed), packs it into a
-# drag-to-Applications installer with the background in Scripts/dmg/, and then CHECKS the
-# result for your macOS username / home path so nothing personal ships.
+# drag-to-Applications installer with the background in Scripts/dmg/, and then CHECKS every
+# file in the result for your macOS username / home path so nothing personal ships.
 # Needs macOS with Xcode. The first run may ask to let Terminal control Finder: click OK.
 set -euo pipefail
 
@@ -12,22 +12,23 @@ ROOT="$PWD"
 VOL="Orra"
 OUT="$ROOT/build/Orra.dmg"
 
-echo "==> Building Orra.app"
-./Scripts/build.sh
-APP="$ROOT/build/Orra.app"
+# Everything is built and packed in neutral folders under /private/tmp, so no path under
+# your home folder can end up in the app or in the installer's window settings.
+BUILD_SRC="$(mktemp -d /private/tmp/orra-build.XXXXXX)"
+WORK="$(mktemp -d /private/tmp/orra-dmg.XXXXXX)"
+trap 'hdiutil detach "/Volumes/$VOL" -force >/dev/null 2>&1 || true; rm -rf "$BUILD_SRC" "$WORK"' EXIT
+
+echo "==> Building Orra.app (in a neutral folder)"
+rsync -a --exclude .git --exclude build ./ "$BUILD_SRC/"
+( cd "$BUILD_SRC" && ./Scripts/build.sh )
+APP="$BUILD_SRC/build/Orra.app"
 [ -d "$APP" ] || { echo "Build failed: $APP not found"; exit 1; }
 
-# Fail early if the binary still carries local paths.
-if strings -a "$APP/Contents/MacOS/Orra" | grep -qF "/Users/"; then
-  echo "ERROR: the app binary still contains a /Users/... path. Not packaging it."
-  strings -a "$APP/Contents/MacOS/Orra" | grep -F "/Users/" | head -3
-  exit 1
-fi
-
-# Work in a neutral temp folder: Finder records the image's location in the installer's
-# window settings, so it must not live under your home folder.
-WORK="$(mktemp -d /private/tmp/orra-dmg.XXXXXX)"
-trap 'hdiutil detach "/Volumes/$VOL" -force >/dev/null 2>&1 || true; rm -rf "$WORK"' EXIT
+# Remove debug symbols (they record the Swift module path), then re-sign: macOS refuses to
+# run a modified binary whose signature is no longer valid.
+strip -S "$APP/Contents/MacOS/Orra"
+codesign --force --sign - "$APP"
+codesign --verify --strict "$APP"
 
 echo "==> Staging installer"
 mkdir -p "$WORK/stage/.background"
@@ -72,13 +73,16 @@ mkdir -p "$ROOT/build"
 rm -f "$OUT"
 hdiutil convert "$WORK/rw.dmg" -format UDZO -imagekey zlib-level=9 -o "$OUT" >/dev/null
 
-echo "==> Privacy check"
+echo "==> Privacy check (every file in the finished installer)"
 hdiutil attach "$OUT" -readonly -nobrowse -noverify -mountpoint "/Volumes/$VOL" >/dev/null
-BAD=0
-if strings -a "/Volumes/$VOL/Orra.app/Contents/MacOS/Orra" | grep -qE "/Users/|$USER"; then BAD=1; echo "  found your username/home path in the app binary"; fi
-if [ -f "/Volumes/$VOL/.DS_Store" ] && strings -a "/Volumes/$VOL/.DS_Store" | grep -qE "/Users/|Users:|$USER"; then BAD=1; echo "  found your username/home path in the installer layout"; fi
+HITS="$(grep -rlaF -e "/Users/" -e "Users:" -e "$USER" "/Volumes/$VOL" 2>/dev/null || true)"
 hdiutil detach "/Volumes/$VOL" >/dev/null
-[ "$BAD" -eq 0 ] || { echo "Privacy check FAILED - do not publish $OUT"; exit 1; }
+if [ -n "$HITS" ]; then
+  echo "Privacy check FAILED - these files contain your username or home path:"
+  echo "$HITS"
+  echo "Do NOT publish $OUT"
+  exit 1
+fi
 echo "  clean."
 
 echo

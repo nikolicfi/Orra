@@ -20,6 +20,10 @@ A small, glassy now-playing card that sits right on top of the login window — 
   <img src="docs/lockscreen-compact.jpg" alt="Orra compact card on the lock screen" width="100%" />
 </p>
 
+## Why I built it
+
+I liked that iPhones have something like this built in, and macOS doesn't. The Mac apps that offer it cost money and weren't what I wanted, so I built my own.
+
 ## Download
 
 Get **Orra.dmg** from the [latest release](https://github.com/nikolicfi/Orra/releases/latest), then:
@@ -77,9 +81,16 @@ Then:
 - **App icon** — `Resources/Assets.xcassets` → `AppIcon`, or run `./Scripts/make-icons.sh my-icon-1024.png` to generate every size from one square PNG (needs macOS, uses `sips`).
 - **Menu bar icon** — `Resources/Assets.xcassets` → `StatusBarIcon`: a black shape on a transparent background. It's a template image, so it adapts to light and dark menu bars.
 
+## How it works, and the trade-off
+
+macOS has no public API for placing a third-party window on the lock screen. Orra uses Apple's **private SkyLight framework** to put its windows in a separate space layered above the login window.
+
+- **What it gains:** the card can appear on the lock screen.
+- **What it costs:** Apple can change SkyLight in any macOS update and break the app, and Orra can't be published on the Mac App Store.
+- **How the risk is contained:** the SkyLight calls live in one file (`SkyLight.swift`) and are loaded at runtime. If a function is missing, lock screen display is disabled.
+
 ## Good to know
 
-- Orra uses **private SkyLight APIs** to draw above the lock screen — so it's not App Store safe and may break with macOS updates.
 - Now-playing info comes from **AppleScript** (Music, Spotify). MediaRemote isn't used: it's blocked for third-party apps since macOS 15.4.
 - Album artwork comes straight from Music or Spotify.
 - Orra makes no network requests of its own and logs nothing. The only download is the Spotify album artwork, fetched from the URL Spotify itself provides.
